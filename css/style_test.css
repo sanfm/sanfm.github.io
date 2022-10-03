@@ -12,7 +12,11 @@ body {
 
 
 header.articulo {
+/*     margin: auto; */
     background-color: rgb(34, 34, 34);
+/*     padding: 40px; */
+/*     position: relative; */
+/*     width: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,33 +32,26 @@ img.imgHeader {
 }
 
 /* Botón del header */
-.home-link {
+.help-link {
     position:absolute;
     top:20px;
-    left: 125px;
+    right:20px;
     background-color:#333;
     color:#bbb;
     padding:5px 10px;
     border-radius:4px;
     font-size:12px;
     font-weight:bold;
+/*     -webkit-backface-visibility: hidden; */
     -webkit-transition:color 0.2s ease-in-out 0s;
     -moz-transition:color 0.2s ease-in-out 0s;
     -o-transition:color 0.2s ease-in-out 0s;
     transition:color 0.2s ease-in-out 0s
 }
-.home-link:hover {
+.help-link:hover {
     color:#fff
 }
-/* logo del header */
-header img.sanfmlogo {
-    max-width: 200px;
-    height: auto;
-    display: inline-block;
-    position: absolute;
-    top: 40px;
-    left: 50px;
-}
+
 
 
 
@@ -64,51 +61,52 @@ header img.sanfmlogo {
 .flex-container {
     display: flex;
     justify-content: space-between;
+    background-color: burlywood;
     padding: 10px;
+    border: 2px solid black;
     column-gap: 30px;
+}
+
+.flex-container div {
+    background-color: gainsboro;
+    width: 100px;
+    margin: 10px;
+    line-height: 75px;
+    border: 2px solid black;
 }
 
 /* left sidebar */
 .menu {
     flex-basis: 14.375rem;
     align-self: flex-start;
+    /* height: 25vh; */
     width: auto;
     position: -webkit-sticky;
     position: sticky;
     top: 1rem;
 }
+
 .menu ul {
     list-style-type: none;
     margin: 0;
-    background-color: rgb(34, 34, 34);
-    border-radius: 15px 40px 20px 5px;
+    /* padding: 0 0.3rem; */
+    /* width: 200px; */
+    background-color: #fff1f1;
 }
+  
 .menu li a {
     display: block;
-    color: white;
-    padding: 8px 16px;
+    color: #000;
+    /* padding: 8px 16px; */
     text-decoration: none;
 }
+  
 /*   Change the link color on hover */
 .menu ul a:hover {
-    background-color: white;
-    color: black;
+    background-color: #555;
+    color: white;
 }
 
-
-
-
-/* article */
-.content {
-    flex-basis: 62rem;
-    align-self: flex-start;
-}
-.content h2 {
-    text-align: center;
-}
-.content p {
-    text-align: justify;
-}
 
 
 
@@ -121,33 +119,20 @@ header img.sanfmlogo {
     position: sticky;
     top: 1rem;
 }
-.rightbar img {
-    max-width: 250px;
-    height: auto;
-    display: inline-block;
+
+
+
+/* article */
+.content {
+    /* flex-grow: 2; */
+    flex-basis: 62rem;
+    align-self: flex-start;
 }
 
-
-
-/* footer */
-footer {
-    position: relative;
-    font-size: 12px;
-    line-height: 1.5;
-    color: #777;
-    clear: both;
-    width: 62rem;
-    display: block;
-    padding: 40px 0;
-    margin: 70px auto 0 auto;
-    border-top: 3px solid #eee;
-    border-radius: 20px;
+.content h2 {
+    text-align: center;
 }
-img.logos {
-    max-width: 20px;
-    height: auto;
-    display: inline-block;
-    position: absolute;
-    top: 40px;
-    left: 50%;
+
+.content p {
+    text-align: justify;
 }
