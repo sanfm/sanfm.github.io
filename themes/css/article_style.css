@@ -151,3 +151,41 @@ img.logos {
     top: 40px;
     left: 50%;
 }
+
+
+
+/* Bloque pre */
+pre {
+    /*background-color: #1e1e1e; /* Fondo oscuro */
+    color: #d4d4d4; /* Texto claro */
+    padding: 1px 1px; /* Menos espacio vertical, más horizontal */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow-x: auto; /* Scroll horizontal */
+    font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada */
+    font-size: 14px; /* Tamaño de fuente */
+    line-height: 1.5; /* Altura de línea */
+    margin: 10px 0; /* Menor margen vertical */
+    white-space: pre-wrap; /* Ajusta líneas largas */
+    word-wrap: break-word; /* Permite dividir palabras largas */
+    text-align: left !important; /* Fuerza alineación a la izquierda */
+}
+
+/* Bloque code dentro de pre */
+pre code {
+    display: block; /* Asegura comportamiento de bloque */
+    margin: 0; /* Sin márgenes extra */
+    padding: 0px 10px; /* Sin relleno interno adicional */
+    text-align: left !important; /* Fuerza alineación a la izquierda */
+}
+
+/* Código inline */
+code {
+    background-color: rgb(34, 34, 34); /* Fondo */
+    color: #f8f8f2; /* Texto */
+    padding: 2px 6px; /* Más espacio horizontal */
+    border-radius: 4px; /* Bordes redondeados */
+    font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada */
+    font-size: 90%; /* Tamaño relativo */
+    display: inline; /* Asegura comportamiento inline */
+    text-align: left !important; /* Previene alineación global */
+}
