@@ -60,11 +60,11 @@
 
             <h2 id="apartado1">Configuración de OpenBox</h2>
             <p>
-	    Vamos a añadir los atajos de teclado que queremos que nuestro WM (OpenBox) utilice. Para ello tendremos que abrir y editar el archivo de configuración de openbox <ocde>$HOME/.config/openbox/rc.xml</code>
+				Vamos a añadir los atajos de teclado que queremos que nuestro WM (OpenBox) utilice. Para ello tendremos que abrir y editar el archivo de configuración de openbox <code>$HOME/.config/openbox/rc.xml</code>
             </p>
 
             <p>
-				Estos cambios los haremos dentro de la sección <code><keyboard></keyboard></code>
+				Estos cambios los haremos dentro de la sección <code>&lt;keyboard&gt;&lt;/keyboard&gt;</code>
             </p>
             
             <p>
@@ -93,30 +93,278 @@
 			</pre>
 
 			<p>
-				Usar tecla "Super" + "Shift" + "Número" para mover la ventan activa al escritorio virtual seleccionado
+				Usar tecla "Super" + "Shift" + "Número" para mover la ventana activa al escritorio virtual seleccionado
             </p>
 
 			<pre>
 				<code>
-<!-- Send to virtual desktop x -->
-<keybind key="W-S-1">
-  <action name="SendToDesktop">
-	<to>1</to>
+&lt;!-- Send to virtual desktop x --&gt;
+&lt;keybind key="W-S-1"&gt;
+  &lt;action name="SendToDesktop"&gt;
+	&lt;to&gt;1&lt;/to&gt;
+  &lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="W-S-2"&gt;
+  &lt;action name="SendToDesktop"&gt;
+	&lt;to&gt;2&lt;/to&gt;
+  &lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="W-S-3"&gt;
+  &lt;action name="SendToDesktop"&gt;
+	&lt;to&gt;3&lt;/to&gt;
+  &lt;/action&gt;
+&lt;/keybind&gt;
+				</code>
+			</pre>
+			
+			
+			<p>
+				Usar tecla "Control" + "Super" + "V" para dividir verticalmente la pantalla con las 2 últimas ventanas más recientes
+            </p>
+
+			<pre>
+				<code>
+<!-- Vertical tiling -->
+<keybind key="C-W-v">
+  <action name="Unmaximize"/>
+  <action name="MoveResizeTo">
+	<width>49%</width>
+	<height>98%</height>
   </action>
-</keybind>
-<keybind key="W-S-2">
-  <action name="SendToDesktop">
-	<to>2</to>
+  <action name="UnmaximizeVert"/>
+  <action name="MoveResizeTo">
+	<x>12</x>
+	<y>10</y>
   </action>
-</keybind>
-<keybind key="W-S-3">
-  <action name="SendToDesktop">
-	<to>3</to>
+  <action name="NextWindow">
+	<interactive>no</interactive>
+	<dialog>none</dialog>
+	<finalactions>
+	  <action name="Unmaximize"/>
+	  <action name="MoveResizeTo">
+		<width>49%</width>
+		<height>98%</height>
+	  </action>
+	  <action name="UnmaximizeVert"/>
+	  <action name="MoveResizeTo">
+		<x>-12</x>
+		<y>10</y>
+	  </action>
+	</finalactions>
   </action>
 </keybind>
 				</code>
 			</pre>
+			
+			
+			<p>
+				Usar tecla "Control" + "Super" + "H" para dividir horizontalmente la pantalla con las 2 últimas ventanas más recientes
+            </p>
 
+			<pre>
+				<code>
+<!-- Horizontal tiling -->
+<keybind key="C-W-h">
+  <action name="UnmaximizeFull"/>
+  <action name="MoveResizeTo">
+	<width>98%</width>
+	<height>49%</height>
+  </action>
+  <action name="MaximizeHorz"/>
+  <action name="MoveResizeTo">
+	<x>12</x>
+	<y>10</y>
+  </action>
+  <action name="NextWindow">
+	<interactive>no</interactive>
+	<dialog>none</dialog>
+	<finalactions>
+	  <action name="UnmaximizeFull"/>
+	  <action name="MoveResizeTo">
+		<width>98%</width>
+		<height>49%</height>
+	  </action>
+	  <action name="MaximizeHorz"/>
+	  <action name="MoveResizeTo">
+		<x>-12</x>
+		<y>-10</y>
+	  </action>
+	</finalactions>
+  </action>
+</keybind>
+				</code>
+			</pre>
+			
+			
+			<p>
+				Usar tecla "Control" + "Super" + "Dirección" para posicionar la ventana actual al 50% de la pantalla (izquierda, derecha, arriba o abajo)
+            </p>
+
+			<pre>
+				<code>
+<!--# HalfLeftScreen-->
+<keybind key="C-W-Left">  
+	<action name="UnmaximizeFull"/>  
+	<action name="MoveResizeTo">    
+		<x>0</x>    
+		<y>0</y>    
+		<height>100%</height>    
+		<width>50%</width>  
+	</action>
+</keybind>
+<!--# HalfRightScreen-->
+<keybind key="C-W-Right">  
+	<action name="UnmaximizeFull"/>  
+	<action name="MoveResizeTo">    
+		<x>-0</x>    
+		<y>0</y>    
+		<height>100%</height>    
+		<width>50%</width>  
+	</action>
+</keybind>
+<!--# HalfUpperScreen-->
+<keybind key="C-W-Up">  
+	<action name="UnmaximizeFull"/>  
+	<action name="MoveResizeTo">    
+		<x>0</x>    
+		<y>0</y>    
+		<width>100%</width>    
+		<height>50%</height>  
+	</action>
+</keybind>
+<!--# HalfLowerScreen-->
+<keybind key="C-W-Down">  
+	<action name="UnmaximizeFull"/>  
+	<action name="MoveResizeTo">    
+		<x>0</x>    
+		<y>-0</y>    
+		<width>100%</width>    
+		<height>50%</height>  
+	</action>
+</keybind>
+				</code>
+			</pre>
+
+
+
+			<p>
+				Usar tecla "Control" + "Super" + "Número (1 al 4)" para posicionar la ventana actual en el cuarto de pantalla arriba izquierda o derecha o el cuarto de pantalla abajo izquierad o derecha
+            </p>
+
+			<pre>
+				<code>
+<!--# 50%LeftUpScreen-->
+<keybind key="C-W-1">  
+	<action name="UnmaximizeFull"/>   
+	<action name="MoveResizeTo">    
+		<x>0</x>    
+		<y>0</y>    
+		<height>50%</height>    
+		<width>50%</width>  
+	</action>
+</keybind>
+<!--# 50%LeftDownScreen-->
+<keybind key="C-W-3">  
+	<action name="UnmaximizeFull"/>  
+	<action name="MoveResizeTo">    
+		<x>0</x>    
+		<y>-0</y>    
+		<width>50%</width>    
+		<height>50%</height>  
+	</action>
+</keybind>
+<!--# 50%RightUpScreen-->
+<keybind key="C-W-2">  
+	<action name="UnmaximizeFull"/>  
+	<action name="MoveResizeTo">    
+		<x>-0</x>    
+		<y>0</y>    
+		<height>50%</height>    
+		<width>50%</width>  
+	</action>
+</keybind>
+<!--# 50%RightDownScreen-->
+<keybind key="C-W-4">  
+	<action name="UnmaximizeFull"/>  
+	<action name="MoveResizeTo">    
+		<x>-0</x>    
+		<y>-0</y>    
+		<height>50%</height>    
+		<width>50%</width>  
+	</action>
+</keybind>
+				</code>
+			</pre>
+
+
+			<p>
+				Usar tecla "Control" + "Super" + "c" para centrar la ventana
+            </p>
+            <p>
+				Usar tecla "Control" + "Super" + "M" maximizar la ventana
+            </p>
+            <p>
+				Usar tecla "Control" + "Super" + "I" minimizar la ventana
+            </p>
+
+			<pre>
+				<code>
+<!-- Center the Current Window -->
+<keybind key="C-W-c">
+  <action name="MoveResizeTo">
+	<x>center</x>
+	<y>center</y>
+	<width>75%</width>
+	<height>75%</height>
+  </action>
+</keybind>
+<!--# Maximize-->
+<keybind key="C-W-M">  
+	<action name="ToggleMaximize"/>
+</keybind>
+<!--# Minimize-->
+<keybind key="C-W-I">  
+	<action name="Iconify"/>
+</keybind>
+				</code>
+			</pre>
+
+
+
+			<p>
+				Algunos keybindings para aplicaciones recurrentes
+            </p>
+
+			<pre>
+				<code>
+<!--# key shortcuts for apps-->
+<!--# Terminal-->
+<keybind key="W-Return">  
+	<action name="Execute">    
+		<command>qterminal</command>  
+	</action>
+</keybind>
+<!--# Browser private window-->
+<keybind key="W-S-b">  
+	<action name="Execute">    
+		<command>firefox --private-window</command>  
+	</action>
+</keybind>
+<!--# Browser window-->
+<keybind key="W-b">  
+	<action name="Execute">    
+		<command>firefox</command>  
+	</action>
+</keybind>
+<!--# File manager-->
+<keybind key="W-f">  
+	<action name="Execute">    
+		<command>pcmanfm-qt</command>  
+	</action>
+</keybind>
+</keyboard>
+				</code>
+			</pre>
 
 
 
