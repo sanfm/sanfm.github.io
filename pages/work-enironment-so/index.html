@@ -51,8 +51,12 @@
             <h2 id="intro">Intro</h2>
             <p>
                 Objetivo: Conseguir que el desktop environment de Lubuntu (LXQT / OpenBox) cumpla ciertas funcionalidades quasi de un tiling window manager (WM).
+            </p>
+            <p>
 		Lubuntu utiliza como desktop environment LXQT y este a su vez utiliza OpenBox como window manager. No obstante, OpenBox es un floating WM (de esos a los que estamos acostumbrados donde puedes arrastrar las ventanas y redimensionarlas con el ratón colocándolas donde te apetezca), en lugar de un tiling WM (los cuales reubican las ventanas para aprovechar el espacio de la pantalla al máximo y se operan con el teclado en lugar de con el ratón).
-		Si OpenBox es el WM que utiliza Lubuntu, bastará con cambiar la configuración de OpenBox ¿verdad?
+			</p>
+			<p>
+		Si OpenBox es el WM que utiliza Lubuntu, bastará con cambiar la configuración de OpenBox ¿verdad? <br>
 		Pues a grandes rasgos sí, pero habrá que tener en cuenta un par de consideraciones si queremos utilizar algunos atajos de teclado, puesto que Lubuntu y LXQT utilizan unos shortcuts que podrían interferir con nuestra configuración de teclas.
             </p>
 
@@ -124,35 +128,35 @@
 
 			<pre>
 				<code>
-<!-- Vertical tiling -->
-<keybind key="C-W-v">
-  <action name="Unmaximize"/>
-  <action name="MoveResizeTo">
-	<width>49%</width>
-	<height>98%</height>
-  </action>
-  <action name="UnmaximizeVert"/>
-  <action name="MoveResizeTo">
-	<x>12</x>
-	<y>10</y>
-  </action>
-  <action name="NextWindow">
-	<interactive>no</interactive>
-	<dialog>none</dialog>
-	<finalactions>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
-		<width>49%</width>
-		<height>98%</height>
-	  </action>
-	  <action name="UnmaximizeVert"/>
-	  <action name="MoveResizeTo">
-		<x>-12</x>
-		<y>10</y>
-	  </action>
-	</finalactions>
-  </action>
-</keybind>
+&lt;!-- Vertical tiling --&gt;
+&lt;keybind key="C-W-v"&gt;
+  &lt;action name="Unmaximize"/&gt;
+  &lt;action name="MoveResizeTo"&gt;
+	&lt;width&gt;49%&lt;/width&gt;
+	&lt;height&gt;98%&lt;/height&gt;
+  &lt;/action&gt;
+  &lt;action name="UnmaximizeVert"/&gt;
+  &lt;action name="MoveResizeTo"&gt;
+	&lt;x&gt;12&lt;/x&gt;
+	&lt;y&gt;10&lt;/y&gt;
+  &lt;/action&gt;
+  &lt;action name="NextWindow"&gt;
+	&lt;interactive&gt;no&lt;/interactive&gt;
+	&lt;dialog&gt;none&lt;/dialog&gt;
+	&lt;finalactions&gt;
+	  &lt;action name="Unmaximize"/&gt;
+	  &lt;action name="MoveResizeTo"&gt;
+		&lt;width&gt;49%&lt;/width&gt;
+		&lt;height&gt;98%&lt;/height&gt;
+	  &lt;/action&gt;
+	  &lt;action name="UnmaximizeVert"/&gt;
+	  &lt;action name="MoveResizeTo"&gt;
+		&lt;x&gt;-12&lt;/x&gt;
+		&lt;y&gt;10&lt;/y&gt;
+	  &lt;/action&gt;
+	&lt;/finalactions&gt;
+  &lt;/action&gt;
+&lt;/keybind&gt;
 				</code>
 			</pre>
 			
@@ -163,35 +167,35 @@
 
 			<pre>
 				<code>
-<!-- Horizontal tiling -->
-<keybind key="C-W-h">
-  <action name="UnmaximizeFull"/>
-  <action name="MoveResizeTo">
-	<width>98%</width>
-	<height>49%</height>
-  </action>
-  <action name="MaximizeHorz"/>
-  <action name="MoveResizeTo">
-	<x>12</x>
-	<y>10</y>
-  </action>
-  <action name="NextWindow">
-	<interactive>no</interactive>
-	<dialog>none</dialog>
-	<finalactions>
-	  <action name="UnmaximizeFull"/>
-	  <action name="MoveResizeTo">
-		<width>98%</width>
-		<height>49%</height>
-	  </action>
-	  <action name="MaximizeHorz"/>
-	  <action name="MoveResizeTo">
-		<x>-12</x>
-		<y>-10</y>
-	  </action>
-	</finalactions>
-  </action>
-</keybind>
+&lt;!-- Horizontal tiling --&gt;
+&lt;keybind key="C-W-h"&gt;
+  &lt;action name="UnmaximizeFull"/&gt;
+  &lt;action name="MoveResizeTo"&gt;
+	&lt;width&gt;98%&lt;/width&gt;
+	&lt;height&gt;49%&lt;/height&gt;
+  &lt;/action&gt;
+  &lt;action name="MaximizeHorz"/&gt;
+  &lt;action name="MoveResizeTo"&gt;
+	&lt;x&gt;12&lt;/x&gt;
+	&lt;y&gt;10&lt;/y&gt;
+  &lt;/action&gt;
+  &lt;action name="NextWindow"&gt;
+	&lt;interactive&gt;no&lt;/interactive&gt;
+	&lt;dialog&gt;none&lt;/dialog&gt;
+	&lt;finalactions&gt;
+	  &lt;action name="UnmaximizeFull"/&gt;
+	  &lt;action name="MoveResizeTo"&gt;
+		&lt;width&gt;98%&lt;/width&gt;
+		&lt;height&gt;49%&lt;/height&gt;
+	  &lt;/action&gt;
+	  &lt;action name="MaximizeHorz"/&gt;
+	  &lt;action name="MoveResizeTo"&gt;
+		&lt;x&gt;-12&lt;/x&gt;
+		&lt;y&gt;-10&lt;/y&gt;
+	  &lt;/action&gt;
+	&lt;/finalactions&gt;
+  &lt;/action&gt;
+&lt;/keybind&gt;
 				</code>
 			</pre>
 			
@@ -202,46 +206,46 @@
 
 			<pre>
 				<code>
-<!--# HalfLeftScreen-->
-<keybind key="C-W-Left">  
-	<action name="UnmaximizeFull"/>  
-	<action name="MoveResizeTo">    
-		<x>0</x>    
-		<y>0</y>    
-		<height>100%</height>    
-		<width>50%</width>  
-	</action>
-</keybind>
-<!--# HalfRightScreen-->
-<keybind key="C-W-Right">  
-	<action name="UnmaximizeFull"/>  
-	<action name="MoveResizeTo">    
-		<x>-0</x>    
-		<y>0</y>    
-		<height>100%</height>    
-		<width>50%</width>  
-	</action>
-</keybind>
-<!--# HalfUpperScreen-->
-<keybind key="C-W-Up">  
-	<action name="UnmaximizeFull"/>  
-	<action name="MoveResizeTo">    
-		<x>0</x>    
-		<y>0</y>    
-		<width>100%</width>    
-		<height>50%</height>  
-	</action>
-</keybind>
-<!--# HalfLowerScreen-->
-<keybind key="C-W-Down">  
-	<action name="UnmaximizeFull"/>  
-	<action name="MoveResizeTo">    
-		<x>0</x>    
-		<y>-0</y>    
-		<width>100%</width>    
-		<height>50%</height>  
-	</action>
-</keybind>
+&lt;!--# HalfLeftScreen--&gt;
+&lt;keybind key="C-W-Left"&gt;  
+	&lt;action name="UnmaximizeFull"/&gt;  
+	&lt;action name="MoveResizeTo"&gt;    
+		&lt;x&gt;0&lt;/x&gt;    
+		&lt;y&gt;0&lt;/y&gt;    
+		&lt;height&gt;100%&lt;/height&gt;    
+		&lt;width&gt;50%&lt;/width&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# HalfRightScreen--&gt;
+&lt;keybind key="C-W-Right"&gt;  
+	&lt;action name="UnmaximizeFull"/&gt;  
+	&lt;action name="MoveResizeTo"&gt;    
+		&lt;x&gt;-0&lt;/x&gt;    
+		&lt;y&gt;0&lt;/y&gt;    
+		&lt;height&gt;100%&lt;/height&gt;    
+		&lt;width&gt;50%&lt;/width&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# HalfUpperScreen--&gt;
+&lt;keybind key="C-W-Up"&gt;  
+	&lt;action name="UnmaximizeFull"/&gt;  
+	&lt;action name="MoveResizeTo"&gt;    
+		&lt;x&gt;0&lt;/x&gt;    
+		&lt;y&gt;0&lt;/y&gt;    
+		&lt;width&gt;100%&lt;/width&gt;    
+		&lt;height&gt;50%&lt;/height&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# HalfLowerScreen--&gt;
+&lt;keybind key="C-W-Down"&gt;  
+	&lt;action name="UnmaximizeFull"/&gt;  
+	&lt;action name="MoveResizeTo"&gt;    
+		&lt;x&gt;0&lt;/x&gt;    
+		&lt;y&gt;-0&lt;/y&gt;    
+		&lt;width&gt;100%&lt;/width&gt;    
+		&lt;height&gt;50%&lt;/height&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
 				</code>
 			</pre>
 
@@ -253,46 +257,46 @@
 
 			<pre>
 				<code>
-<!--# 50%LeftUpScreen-->
-<keybind key="C-W-1">  
-	<action name="UnmaximizeFull"/>   
-	<action name="MoveResizeTo">    
-		<x>0</x>    
-		<y>0</y>    
-		<height>50%</height>    
-		<width>50%</width>  
-	</action>
-</keybind>
-<!--# 50%LeftDownScreen-->
-<keybind key="C-W-3">  
-	<action name="UnmaximizeFull"/>  
-	<action name="MoveResizeTo">    
-		<x>0</x>    
-		<y>-0</y>    
-		<width>50%</width>    
-		<height>50%</height>  
-	</action>
-</keybind>
-<!--# 50%RightUpScreen-->
-<keybind key="C-W-2">  
-	<action name="UnmaximizeFull"/>  
-	<action name="MoveResizeTo">    
-		<x>-0</x>    
-		<y>0</y>    
-		<height>50%</height>    
-		<width>50%</width>  
-	</action>
-</keybind>
-<!--# 50%RightDownScreen-->
-<keybind key="C-W-4">  
-	<action name="UnmaximizeFull"/>  
-	<action name="MoveResizeTo">    
-		<x>-0</x>    
-		<y>-0</y>    
-		<height>50%</height>    
-		<width>50%</width>  
-	</action>
-</keybind>
+&lt;!--# 50%LeftUpScreen--&gt;
+&lt;keybind key="C-W-1"&gt;  
+	&lt;action name="UnmaximizeFull"/&gt;   
+	&lt;action name="MoveResizeTo"&gt;    
+		&lt;x&gt;0&lt;/x&gt;    
+		&lt;y&gt;0&lt;/y&gt;    
+		&lt;height&gt;50%&lt;/height&gt;    
+		&lt;width&gt;50%&lt;/width&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# 50%LeftDownScreen--&gt;
+&lt;keybind key="C-W-3"&gt;  
+	&lt;action name="UnmaximizeFull"/&gt;  
+	&lt;action name="MoveResizeTo"&gt;    
+		&lt;x&gt;0&lt;/x&gt;    
+		&lt;y&gt;-0&lt;/y&gt;    
+		&lt;width&gt;50%&lt;/width&gt;    
+		&lt;height&gt;50%&lt;/height&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# 50%RightUpScreen--&gt;
+&lt;keybind key="C-W-2"&gt;  
+	&lt;action name="UnmaximizeFull"/&gt;  
+	&lt;action name="MoveResizeTo"&gt;    
+		&lt;x&gt;-0&lt;/x&gt;    
+		&lt;y&gt;0&lt;/y&gt;    
+		&lt;height&gt;50%&lt;/height&gt;    
+		&lt;width&gt;50%&lt;/width&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# 50%RightDownScreen--&gt;
+&lt;keybind key="C-W-4"&gt;  
+	&lt;action name="UnmaximizeFull"/&gt;  
+	&lt;action name="MoveResizeTo"&gt;    
+		&lt;x&gt;-0&lt;/x&gt;    
+		&lt;y&gt;-0&lt;/y&gt;    
+		&lt;height&gt;50%&lt;/height&gt;    
+		&lt;width&gt;50%&lt;/width&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
 				</code>
 			</pre>
 
@@ -309,23 +313,23 @@
 
 			<pre>
 				<code>
-<!-- Center the Current Window -->
-<keybind key="C-W-c">
-  <action name="MoveResizeTo">
-	<x>center</x>
-	<y>center</y>
-	<width>75%</width>
-	<height>75%</height>
-  </action>
-</keybind>
-<!--# Maximize-->
-<keybind key="C-W-M">  
-	<action name="ToggleMaximize"/>
-</keybind>
-<!--# Minimize-->
-<keybind key="C-W-I">  
-	<action name="Iconify"/>
-</keybind>
+&lt;!-- Center the Current Window --&gt;
+&lt;keybind key="C-W-c"&gt;
+  &lt;action name="MoveResizeTo"&gt;
+	&lt;x&gt;center&lt;/x&gt;
+	&lt;y&gt;center&lt;/y&gt;
+	&lt;width&gt;75%&lt;/width&gt;
+	&lt;height&gt;75%&lt;/height&gt;
+  &lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# Maximize--&gt;
+&lt;keybind key="C-W-M"&gt;  
+	&lt;action name="ToggleMaximize"/&gt;
+&lt;/keybind&gt;
+&lt;!--# Minimize--&gt;
+&lt;keybind key="C-W-I"&gt;  
+	&lt;action name="Iconify"/&gt;
+&lt;/keybind&gt;
 				</code>
 			</pre>
 
@@ -337,32 +341,32 @@
 
 			<pre>
 				<code>
-<!--# key shortcuts for apps-->
-<!--# Terminal-->
-<keybind key="W-Return">  
-	<action name="Execute">    
-		<command>qterminal</command>  
-	</action>
-</keybind>
-<!--# Browser private window-->
-<keybind key="W-S-b">  
-	<action name="Execute">    
-		<command>firefox --private-window</command>  
-	</action>
-</keybind>
-<!--# Browser window-->
-<keybind key="W-b">  
-	<action name="Execute">    
-		<command>firefox</command>  
-	</action>
-</keybind>
-<!--# File manager-->
-<keybind key="W-f">  
-	<action name="Execute">    
-		<command>pcmanfm-qt</command>  
-	</action>
-</keybind>
-</keyboard>
+&lt;!--# key shortcuts for apps--&gt;
+&lt;!--# Terminal--&gt;
+&lt;keybind key="W-Return"&gt;  
+	&lt;action name="Execute"&gt;    
+		&lt;command&gt;qterminal&lt;/command&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# Browser private window--&gt;
+&lt;keybind key="W-S-b"&gt;  
+	&lt;action name="Execute"&gt;    
+		&lt;command&gt;firefox --private-window&lt;/command&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# Browser window--&gt;
+&lt;keybind key="W-b"&gt;  
+	&lt;action name="Execute"&gt;    
+		&lt;command&gt;firefox&lt;/command&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# File manager--&gt;
+&lt;keybind key="W-f"&gt;  
+	&lt;action name="Execute"&gt;    
+		&lt;command&gt;pcmanfm-qt&lt;/command&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;/keyboard&gt;
 				</code>
 			</pre>
 
