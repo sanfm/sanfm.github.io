@@ -40,11 +40,12 @@
 
 
         <article class="content">
-	    <p>01/12/2024</p>
-	    <p>
-	    	Lubuntu: 24.04.1 LTS 
-	    	LXQT: 1.4.0
-	    <p>
+			<p>01/12/2024</p>
+			<p>
+				Lubuntu: 24.04.1 LTS
+				<br>
+				LXQT: 1.4.0
+			<p>
 
 
             <h2 id="intro">Intro</h2>
@@ -59,19 +60,62 @@
 
             <h2 id="apartado1">Configuración de OpenBox</h2>
             <p>
-                Vamos a añadir los atajos de teclado que queremos que nuestro WM (OpenBox) utilice. Para ello tendremos que abrir y editar el archivo de configuración de openbox
-                $HOME/.config/openbox/rc.xml
+	    Vamos a añadir los atajos de teclado que queremos que nuestro WM (OpenBox) utilice. Para ello tendremos que abrir y editar el archivo de configuración de openbox <ocde>$HOME/.config/openbox/rc.xml</code>
             </p>
 
+            <p>
+				Estos cambios los haremos dentro de la sección <code><keyboard></keyboard></code>
+            </p>
+            
+            <p>
+				Usar tecla "Super" (también conocida como la tecla Windows) + "Número" para cambiar de escritorio virtual
+            </p>
 
-	    <pre>
-	    	<code>
-function greet() {
-	console.log('Hola, mundo!');
-}
-greet();
-		</code>
-	   </pre>
+			<pre>
+				<code>
+<!-- Keybindings for desktop switching -->
+<keybind key="W-1">
+  <action name="GoToDesktop">
+	<to>1</to>
+  </action>
+</keybind>
+<keybind key="W-2">
+  <action name="GoToDesktop">
+	<to>2</to>
+  </action>
+</keybind>
+<keybind key="W-3">
+  <action name="GoToDesktop">
+	<to>3</to>
+  </action>
+</keybind>
+				</code>
+			</pre>
+
+			<p>
+				Usar tecla "Super" + "Shift" + "Número" para mover la ventan activa al escritorio virtual seleccionado
+            </p>
+
+			<pre>
+				<code>
+<!-- Send to virtual desktop x -->
+<keybind key="W-S-1">
+  <action name="SendToDesktop">
+	<to>1</to>
+  </action>
+</keybind>
+<keybind key="W-S-2">
+  <action name="SendToDesktop">
+	<to>2</to>
+  </action>
+</keybind>
+<keybind key="W-S-3">
+  <action name="SendToDesktop">
+	<to>3</to>
+  </action>
+</keybind>
+				</code>
+			</pre>
 
 
 
