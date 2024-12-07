@@ -77,7 +77,7 @@
             <h3 id="1.1 Escritorios virtuales">1.1 Escritorios virtuales</h3>
             
 				<p>
-					Usar tecla "Super" (también conocida como la tecla Windows) + "Número" para cambiar de escritorio virtual
+					Usar tecla <code>"Super" (también conocida como la tecla Windows) + "Número"</code> para cambiar de escritorio virtual
 				</p>
 
 				<pre>
@@ -102,7 +102,7 @@
 				</pre>
 
 				<p>
-					Usar tecla "Super" + "Shift" + "Número" para mover la ventana activa al escritorio virtual seleccionado
+					Usar tecla <code>"Super" + "Shift" + "Número"</code> para mover la ventana activa al escritorio virtual seleccionado
 				</p>
 
 				<pre>
@@ -130,7 +130,7 @@
 			<h3 id="1.2 Tiling like">1.2 Tilink like</h3>
 			
 				<p>
-					Usar tecla "Control" + "Super" + "V" para dividir verticalmente la pantalla con las 2 últimas ventanas más recientes
+					Usar tecla <code>"Control" + "Super" + "V"</code> para dividir verticalmente la pantalla con las 2 últimas ventanas más recientes
 				</p>
 
 				<pre>
@@ -169,7 +169,7 @@
 				
 				
 				<p>
-					Usar tecla "Control" + "Super" + "H" para dividir horizontalmente la pantalla con las 2 últimas ventanas más recientes
+					Usar tecla <code>"Control" + "Super" + "H"</code> para dividir horizontalmente la pantalla con las 2 últimas ventanas más recientes
 				</p>
 
 				<pre>
@@ -208,7 +208,7 @@
 				
 				
 				<p>
-					Usar tecla "Control" + "Super" + "Dirección" para posicionar la ventana actual al 50% de la pantalla (izquierda, derecha, arriba o abajo)
+					Usar tecla <code>"Control" + "Super" + "Dirección"</code> para posicionar la ventana actual al 50% de la pantalla (izquierda, derecha, arriba o abajo)
 				</p>
 
 				<pre>
@@ -259,7 +259,7 @@
 
 
 				<p>
-					Usar tecla "Control" + "Super" + "Número (1 al 4)" para posicionar la ventana actual en el cuarto de pantalla arriba izquierda o derecha o el cuarto de pantalla abajo izquierad o derecha
+					Usar tecla <code>"Control" + "Super" + "Número (1 al 4)"</code> para posicionar la ventana actual en el cuarto de pantalla arriba izquierda o derecha o el cuarto de pantalla abajo izquierad o derecha
 				</p>
 
 				<pre>
@@ -309,13 +309,13 @@
 
 
 				<p>
-					Usar tecla "Control" + "Super" + "c" para centrar la ventana
+					Usar tecla <code>"Control" + "Super" + "c"</code> para centrar la ventana
 				</p>
 				<p>
-					Usar tecla "Control" + "Super" + "M" maximizar la ventana
+					Usar tecla <code>"Control" + "Super" + "M"</code> maximizar la ventana
 				</p>
 				<p>
-					Usar tecla "Control" + "Super" + "I" minimizar la ventana
+					Usar tecla <code>"Control" + "Super" + "I"</code> minimizar la ventana
 				</p>
 
 				<pre>
@@ -341,7 +341,113 @@
 				</pre>
 
 
-			<h3 id="1.3 Apps habituales">1.3 Apps habituales</h3>
+
+			<h3 id="1.3 Movimiento de ventanas">1.3 Movimiento de ventanas</h3>
+
+				<p>
+					Incrementar y disminuir el tamaño de las ventanas con el teclado
+				</p>
+
+				<pre>
+					<code>
+&lt;!--# Increase window size, each sides separately--&gt;
+&lt;keybind key="C-A-Left"&gt;  
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;left&gt;5&lt;/left&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="C-A-Right"&gt;  
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;right&gt;5&lt;/right&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="C-A-Up"&gt;  
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;top&gt;5&lt;/top&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="C-A-Down"&gt;  
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;bottom&gt;5&lt;/bottom&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# Decrease window size, each sides separately--&gt;
+&lt;keybind key="C-A-Left"&gt; 
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;right&gt;-5&lt;/right&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="C-A-Right"&gt;    
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;left&gt;-5&lt;/left&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="C-A-Up"&gt;  
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;bottom&gt;-5&lt;/bottom&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="C-A-Down"&gt;  
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;top&gt;-5&lt;/top&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# Increase/decrease window size--&gt;
+&lt;keybind key="C-A-minus"&gt;  
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;left&gt;-5&lt;/left&gt;    
+		&lt;right&gt;-5&lt;/right&gt;    
+		&lt;top&gt;-2&lt;/top&gt;    
+		&lt;bottom&gt;-2&lt;/bottom&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="C-A-equal"&gt;  
+	&lt;action name="ResizeRelative"&gt;    
+		&lt;left&gt;5&lt;/left&gt;    
+		&lt;right&gt;5&lt;/right&gt;    
+		&lt;top&gt;2&lt;/top&gt;    
+		&lt;bottom&gt;2&lt;/bottom&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+					</code>
+				</pre>
+
+
+				<p>
+					Mover las ventanas flotantes por la pantalla
+				</p>
+
+
+				<pre>
+					<code>
+&lt;!--# Move/Resize with keyboard--&gt;
+&lt;keybind key="A-Left"&gt;  
+	&lt;action name="MoveRelative"&gt;    
+		&lt;x&gt;-5&lt;/x&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="A-Down"&gt;  
+	&lt;action name="MoveRelative"&gt;    
+		&lt;y&gt;5&lt;/y&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="A-Right"&gt;  
+	&lt;action name="MoveRelative"&gt;    
+		&lt;x&gt;5&lt;/x&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;keybind key="A-Up"&gt;  
+	&lt;action name="MoveRelative"&gt;    
+		&lt;y&gt;-5&lt;/y&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+					</code>
+				</pre>
+
+
+
+
+			<h3 id="1.4 Apps habituales">1.4 Apps habituales</h3>
 
 				<p>
 					Algunos keybindings para aplicaciones recurrentes
