@@ -21,6 +21,12 @@ header.articulo {
     font-size: 2.5rem;
 }
 
+/* Imagenes del artículo */
+img {
+    max-width: 60rem;
+    height: auto;
+}
+
 /* Imagen del header */
 img.imgHeader {
     max-width: 62rem;

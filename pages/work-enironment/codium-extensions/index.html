@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="sanfm">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSCode extensions in VSCodium</title>
+    <link rel="icon" type="image/x-icon" href="/themes/images/sanfm-logo-black.ico">
+    <link href="/themes/css/article_style.css" rel="stylesheet" type="text/css">
+  </head>
+
+
+
+  
+
+  <body>
+
+    <header class="articulo">
+        <h1>VSCode extensions in VSCodium</h1>
+        <a href="/" class="home-link">Home</a>
+        <a href="/">
+            <img class="sanfmlogo" src="/themes/images/sanfm-logo.png">
+        </a>
+        <img class="imgHeader" src="/themes/images/under-construction.jpg">
+    </header>
+
+    <br>
+
+    <div class="flex-container">
+        <div class="menu">
+            <ul>
+                <li><a href="#intro">Intro</a></li>
+                <li><a href="#1 Diferencia entre extensiones">Diferencia entre extensiones</a></li>
+				<li><a href="#2 Extensiones VSCode en Codium">2 Extensiones VSCode en Codium</a></li>
+					<li><a href="#2.1 Sustituir marketplace de Codium">2.1 Sustituir marketplace de Codium</a></li>
+                <li><a href="#3 ¿Otra alternativa? Archivos .vsix">3 ¿Otra alternativa? Archivos .vsix</a></li>
+            </ul>    
+        </div>
+
+
+
+        <article class="content">
+			<p>28/12/2024</p>
+			<p>
+				Lubuntu: 24.04.1 LTS
+				<br>
+				VSCodium 1.96.2 release 24355
+			</p>
+
+
+            <h2 id="intro">Intro</h2>
+				<p>
+					<b>Objetivo</b>>: Utilizar la fuente de las extensiones de VS Code (Visual Studio Code) en VSCodium (Codium) para poder acceder a todas las extensiones.
+				</p>
+				<p>
+					Suelo hacer pequeños programitas para microcontroladores (placas arduino y ESP principalmente), y el arduino IDE no es mi editor favorito…
+				</p>
+				<p>
+					Por suerte, existe una extensión para VS Code llamada Platformio, para hacer de VS Code una buena plataforma para programar software para sistemas empotrados (o como los llaman en inglés embebidos, “embedded”).
+				</p>
+				<p>
+					Hace tiempo hice el cambio de VS Code a Codium. Básicamente es VS Code, ya que utiliza el código fuente de VS Code, pero eliminando la telemetría y el tracking de Microsoft.
+				</p>
+				<p>
+					Por ahora todo bien. Si Codium es como VSCode, entonces podré instalar Platformio. Aquí es donde entran algunas restricciones, que hacen que esto no sea así directamente.
+				</p>
+				<p>
+					Vamos a ver cómo podemos descargar cualquier extensión que haya disponible en VSCode, pero en Codium.
+				</p>
+
+            <hr>
+
+
+            <h2 id="1 Diferencia entre extensiones">Diferencia entre extensiones</h2>
+				<p>
+					¿Por qué VSCode y Codium no tienen las mismas extensiones?
+				</p>
+				<p>
+					La realidad es que Codium es un software FLOSS (Free Open Source Software), y también deben serlo sus extensiones; por lo que extensiones que no sean libres, puede que estén restringidas únicamente a VSCode.
+				</p>
+				<p>
+					En el caso de Platformio, este depende de una extensión de C/C++ de Microsoft, y Microsoft no permite que se haga uso de esta extensión de C/C++ en otros editores.
+				</p>
+				<p>
+					Digamos entonces, que las extensiones de VSCode y Codium pueden variar en general por dos motivos. Uno de ellos las filosofía FLOSS de Codium, y otro, que oficialmente Codium no puede distribuir ciertas extensiones de manera global por restricciones.
+				</p>
+				<p>
+					En la siguiente imagen se muestra, cómo no es posible encontrar Platformio en Codium, utilizando su centro de software de extensiones.
+				</p>
+
+				<img src="images/extension_not_found.png" alt="VSCode extension not found in Codium">
+
+
+            
+            <h2 id="2 Extensiones VSCode en Codium">2 Extensiones VSCode en Codium</h2>
+
+				<p>
+					¿Cómo podemos hacer para tener las extensiones de VSCode en Codium?
+				</p>
+				<p>
+					Pues conseguir esto es bastante fácil.
+					<br>
+					Las extensiones que podemos descargar tanto en VScode, como en Codium, deben de estar almacenadas en alguna base de datos, estilo una tienda, o un centro de software, o un marketplace, y las apps de VSCode y Codium deben estar apuntando a esos marketplace para cargar el listado de extensiones y poder descargarlas e instalarlas.
+				</p>
+				<p>
+					Si las extensiones que nos muestran VSCode y Codium son distintas, quiere decir que los marketplace a los que apuntan, también son distintos.
+					<br>
+					Pero si VScode y Codium son literalmente iguales (mismo código fuente), las extensiones de uno deben de poder utilizarse en el otro.
+				</p>
+				<p>
+					Simplemente bastará con cambiar el marketplace de las extensiones de Codium y sustituirlo por el que utiliza VSCode.
+				</p>
+				<p>
+					Buscando en la documentación de VSCodium encontramos que el marketplace que utiliza es <a href="https://open-vsx.org">Open VSX Registry</a>, y VSCode utiliza su <a href="https://marketplace.visualstudio.com/VSCode">Visual Studio marketplace</a>.
+				</p>
+
+
+
+				<h3 id="2.1 Sustituir marketplace de Codium">2.1 Sustituir marketplace de Codium</h3>
+            
+					<p>
+						Entre los archivos de configuración de Codium, podemos encontrar el siguiente product.json
+						<br>
+						Dependiendo de cómo hayamos descargado Codium puede estar en distintas rutas. En mi caso en <code>/usr/share/codium/resources/app/product.json</code>.
+
+					</p>
+					<p>
+						En este archivo es donde se encuentra la URL del marketplace que utiliza Codium, por lo que bastará por sustituirlo por el de VSCode.
+					</p>
+					<p>
+						En el archivo product.json, vamos a buscar
+					</p>
+
+					<pre>
+						<code>
+"extensionsGallery": {
+	"serviceUrl": "https://open-vsx.org/vscode/gallery",
+	"itemUrl": "https://open-vsx.org/vscode/item"
+},						
+						</code>
+					</pre>
+
+					<p>
+						Y lo sustituimos por
+					</p>
+
+					<pre>
+						<code>
+"extensionsGallery": {
+	"serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+	"cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+	"itemUrl": "https://marketplace.visualstudio.com/items"
+},						
+						</code>
+					</pre>
+
+					<p>
+						En la siguiente imagen ya podemos ver cómo ahora sí aparece la extensión Platformio en el marketplace de extensiones que hay integrado en Codium, que ahora es el marketplace de VSCode.
+					</p>
+
+					<img src="images/extension_found.png" alt="VSCode extension found in Codium">
+
+
+			<h2 id="3 ¿Otra alternativa? Archivos .vsix">3 ¿Otra alternativa? Archivos .vsix</h2>
+
+				<p>
+					Hay otra opción para instalar extensiones que no están en el marketplace de Codium en Codium sin cambiar el marketplace.
+				</p>
+
+				<img src="images/vscode_marketplace.png" alt="VSCode marketplace">
+
+				<p>
+					Desde el propio <a href="https://marketplace.visualstudio.com/VSCode">marketplace de extensiones de VScode</a>, podemos descargarla.
+				</p>  
+
+				<img src="images/platformio_vscode_marketplace.png" alt="Download .vsix in Codium">
+
+				<p>
+					Esto nos descargará un archivo con extensión .vsix. Una vez descargado, abrimos Codium, navegamos hasta el menú de extensiones, y presionamos los 3 puntos del panel de extensiones en la esquina superior derecha.
+				</p>
+				<p>
+					Pulsamos en “install from VSIX” y buscamos el archivo que acabamos de descargar.
+				</p>
+
+				<img src="images/vsix_codium.png" alt="Install .vsix in Codium">
+
+				<p>
+					La extensión deberá instalarse si no hay ningún fallo. Reinicia Codium y ya debería estar lista.
+				</p>
+				<p>
+					Hay que recordar, que si la extensión que intentas instalar depende de otras que tampoco están en el marketplace de Codium, también deberás descargar su correspondiente archivo .vsix e instalarlo en Codium, para evitar fallos.
+				</p>
+				<p>
+					También cabe destacar que con este método, no podremos actualizar la extensión directamente desde Codium, sino que deberíamos de repetir de nuevo todo el proceso de búsqueda, descarga e instalación manual del archivo .vsix cuando la quisiéramos actualizar.
+				</p>
+
+
+
+
+
+
+			<h3 id="1.4 Apps habituales">1.4 Apps habituales</h3>
+
+				<p>
+					Algunos keybindings para aplicaciones recurrentes
+				</p>
+
+				<pre>
+					<code>
+&lt;!--# key shortcuts for apps--&gt;
+&lt;!--# Terminal--&gt;
+&lt;keybind key="W-Return"&gt;  
+	&lt;action name="Execute"&gt;    
+		&lt;command&gt;qterminal&lt;/command&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# Browser private window--&gt;
+&lt;keybind key="W-S-b"&gt;  
+	&lt;action name="Execute"&gt;    
+		&lt;command&gt;firefox --private-window&lt;/command&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# Browser window--&gt;
+&lt;keybind key="W-b"&gt;  
+	&lt;action name="Execute"&gt;    
+		&lt;command&gt;firefox&lt;/command&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;!--# File manager--&gt;
+&lt;keybind key="W-f"&gt;  
+	&lt;action name="Execute"&gt;    
+		&lt;command&gt;pcmanfm-qt&lt;/command&gt;  
+	&lt;/action&gt;
+&lt;/keybind&gt;
+&lt;/keyboard&gt;
+					</code>
+				</pre>
+
+
+
+            <h2 id="apartado2">Apartado 2</h2>
+            <p>
+                Integer sagittis ultrices ligula, in pellentesque augue semper in. Pellentesque vestibulum ultricies lacinia. Ut quis odio nec tortor condimentum tincidunt. Morbi maximus, nisl quis luctus gravida, mauris nulla volutpat justo, vitae tristique tellus orci id eros. Suspendisse arcu sem, convallis quis semper et, semper sit amet turpis. Sed id sodales augue, sed consequat nulla. Cras gravida, purus ut efficitur faucibus, quam nunc consectetur elit, vitae eleifend leo odio sed leo. Ut et neque sit amet est lobortis aliquet.
+            </p>
+            <h2 id="apartado3">Apartado 3</h2>
+            <p>
+                Integer sagittis ultrices ligula, in pellentesque augue semper in. Pellentesque vestibulum ultricies lacinia. Ut quis odio nec tortor condimentum tincidunt. Morbi maximus, nisl quis luctus gravida, mauris nulla volutpat justo, vitae tristique tellus orci id eros. Suspendisse arcu sem, convallis quis semper et, semper sit amet turpis. Sed id sodales augue, sed consequat nulla. Cras gravida, purus ut efficitur faucibus, quam nunc consectetur elit, vitae eleifend leo odio sed leo. Ut et neque sit amet est lobortis aliquet.
+            </p>
+            <p>
+                Integer sagittis ultrices ligula, in pellentesque augue semper in. Pellentesque vestibulum ultricies lacinia. Ut quis odio nec tortor condimentum tincidunt. Morbi maximus, nisl quis luctus gravida, mauris nulla volutpat justo, vitae tristique tellus orci id eros. Suspendisse arcu sem, convallis quis semper et, semper sit amet turpis. Sed id sodales augue, sed consequat nulla. Cras gravida, purus ut efficitur faucibus, quam nunc consectetur elit, vitae eleifend leo odio sed leo. Ut et neque sit amet est lobortis aliquet.
+            </p>
+            <p>
+                Integer sagittis ultrices ligula, in pellentesque augue semper in. Pellentesque vestibulum ultricies lacinia. Ut quis odio nec tortor condimentum tincidunt. Morbi maximus, nisl quis luctus gravida, mauris nulla volutpat justo, vitae tristique tellus orci id eros. Suspendisse arcu sem, convallis quis semper et, semper sit amet turpis. Sed id sodales augue, sed consequat nulla. Cras gravida, purus ut efficitur faucibus, quam nunc consectetur elit, vitae eleifend leo odio sed leo. Ut et neque sit amet est lobortis aliquet.
+            </p>
+            <p>
+                Integer sagittis ultrices ligula, in pellentesque augue semper in. Pellentesque vestibulum ultricies lacinia. Ut quis odio nec tortor condimentum tincidunt. Morbi maximus, nisl quis luctus gravida, mauris nulla volutpat justo, vitae tristique tellus orci id eros. Suspendisse arcu sem, convallis quis semper et, semper sit amet turpis. Sed id sodales augue, sed consequat nulla. Cras gravida, purus ut efficitur faucibus, quam nunc consectetur elit, vitae eleifend leo odio sed leo. Ut et neque sit amet est lobortis aliquet.
+            </p>
+            <p>
+                Integer sagittis ultrices ligula, in pellentesque augue semper in. Pellentesque vestibulum ultricies lacinia. Ut quis odio nec tortor condimentum tincidunt. Morbi maximus, nisl quis luctus gravida, mauris nulla volutpat justo, vitae tristique tellus orci id eros. Suspendisse arcu sem, convallis quis semper et, semper sit amet turpis. Sed id sodales augue, sed consequat nulla. Cras gravida, purus ut efficitur faucibus, quam nunc consectetur elit, vitae eleifend leo odio sed leo. Ut et neque sit amet est lobortis aliquet.
+            </p>
+            <p>
+                Integer sagittis ultrices ligula, in pellentesque augue semper in. Pellentesque vestibulum ultricies lacinia. Ut quis odio nec tortor condimentum tincidunt. Morbi maximus, nisl quis luctus gravida, mauris nulla volutpat justo, vitae tristique tellus orci id eros. Suspendisse arcu sem, convallis quis semper et, semper sit amet turpis. Sed id sodales augue, sed consequat nulla. Cras gravida, purus ut efficitur faucibus, quam nunc consectetur elit, vitae eleifend leo odio sed leo. Ut et neque sit amet est lobortis aliquet.
+            </p>
+        </article>
+
+        
+
+
+        <div class="rightbar">
+            <img class="sanfmlogo" src="/themes/images/sanfm-logo-black.png">
+        </div>
+
+
+
+        
+
+    </div>
+
+    <footer>
+        <span>
+            © sanfm
+        </span>
+        <a href="https://github.com/sanfm?tab=repositories">
+            <img class="logos" src="/themes/images/GitHub-Mark-64px.png">
+        </a>
+    </footer>
+    
+  </body>
+
+</html>
