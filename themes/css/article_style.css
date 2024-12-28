@@ -112,7 +112,7 @@ header img.sanfmlogo {
 }
 
 /* Imagenes del artículo */
-img.content {
+.content img {
     max-width: 55rem;
     height: auto;
     display: block;
