@@ -21,11 +21,6 @@ header.articulo {
     font-size: 2.5rem;
 }
 
-/* Imagenes del artículo */
-img {
-    max-width: 60rem;
-    height: auto;
-}
 
 /* Imagen del header */
 img.imgHeader {
@@ -116,7 +111,11 @@ header img.sanfmlogo {
     text-align: justify;
 }
 
-
+/* Imagenes del artículo */
+img.content {
+    max-width: 60rem;
+    height: auto;
+}
 
 
 /* right sidebar */
