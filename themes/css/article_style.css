@@ -107,11 +107,11 @@ header img.sanfmlogo {
 .content h2 {
     border-radius: 25px;
     text-align: center;
-    background-color: rgb(255 255 255 / 50%);
+    background-color: #bbb;
 }
 .content h3 {
     border-radius: 25px;
-    background-color: rgb(255 255 255 / 50%);
+    background-color: #bbb;
 }
 .content p {
     text-align: justify;
