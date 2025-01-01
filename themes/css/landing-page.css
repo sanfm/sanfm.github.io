@@ -1,0 +1,287 @@
+/* Themes (default dark) */
+:root {
+  --bg1: #121212;
+  --bg2: #1d1d1d;
+  --bg3: #2d2d2d;
+  --primary: #bb86fc;
+  --primaryvariant: #3700b3;
+  --secondary: #03dac5;
+  --error: #cf6679;
+  --fontcolor1: white;
+  --fontcolor2: rgb(80, 80, 80);
+}
+
+[data-theme="dark"] {
+  --bg1: #121212;
+  --bg2: #1d1d1d;
+  --bg3: #2d2d2d;
+  --primary: #bb86fc;
+  --primaryvariant: #3700b3;
+  --secondary: #03dac5;
+  --error: #cf6679;
+  --fontcolor1: #FFFFFF;
+  --fontcolor2: rgb(80, 80, 80);
+}
+
+[data-theme="light"] {
+  --bg1: #FFFFFF;
+  --bg2: #d8d8d8;
+  --bg3: #ffffffe8;
+  --primary: #6200EE;
+  --primaryvariant: #3700B3;
+  --secondary: #03DAC6;
+  --error: #B00020;
+  --fontcolor1: #000000;
+  --fontcolor2: rgb(80, 80, 80);
+}
+
+/* General styling */
+html,
+body {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  color: var(--fontcolor1);
+  font:inherit;
+  vertical-align:baseline;
+  background-color: var(--bg1);
+}
+
+/* The body */
+.page-box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg1);
+  transition: all 0.4s ease-out;
+  min-height: 100vh; /* Ensure it’s at least the viewport height */
+}
+
+
+
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 15vh;
+  width: auto;
+}
+  .header-leftbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 10vw;
+  }
+  .header-rightbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: right;
+    padding-right: 10vw;
+  }
+  
+    .nav-item a {
+      color: var(--fontcolor2);
+      text-decoration: none;
+    }
+    .nav-item a:hover {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: bold
+    }
+    
+
+
+
+.trademark-container {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+  .trademark {
+    width: 60vw;
+  }
+  .trademark h1{
+    transform: rotate(-20deg);
+    width: fit-content;
+    font-size: 5rem;
+  }
+
+
+
+
+
+.body-description-container {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 15vh;
+  width: auto;
+}
+  .body-description {
+    width: 80vw;
+  }
+
+
+.posts-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5vw;
+  align-content: space-around;
+  flex-grow: 1; /* Allow this section to grow */
+  width: auto;
+  padding: 0 1vw;/
+}
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    height: 24rem;
+    min-width: 13rem;
+    width: auto;
+    padding: 7px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: var(--primary);
+    border-radius: 5px;
+    background-color: var(--bg2);
+    position: relative; /* Required for pseudo-elements positioning */
+    transition: transform 0.2s; /* Smooth animation for the card content */
+    transform: translate(calc(var(--expand, 0) * -4%), calc(var(--expand, 0) * -4%));
+  }
+    .card-date {
+      flex: 1 0 10%;
+    }
+    .card-title {
+      flex: 1 0 20%;
+    }
+    .card-description {
+      flex: 1 0 70%;
+    }
+
+
+/* animation for post cards */
+.post-card:hover {
+  --expand: 1; /* Trigger expansion on hover */
+}
+
+.post-card:before,
+.post-card:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: var(--bg2);
+  border: 2px solid var(--primary);
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place behind the card */
+  transition: transform 0.2s; /* Smooth animation for pseudo-elements */
+}
+
+.post-card:after {
+  transform: translate(calc(var(--expand, 0) * -2%), calc(var(--expand, 0) * -2%));
+}
+
+
+
+/* -------------------------------------- */
+/* Toggle Button */
+#toggle {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 3rem;
+    height: 1.3rem;
+    border-radius: 1.3rem;
+    background-color: var(--primaryvariant);
+    position: relative;
+    transition: all 0.5s ease-in;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+/* Making a dot switch inside the Toggle Button */
+#toggle::before {
+    content: "";
+    width: 1.08rem;
+    height: 1.08rem;
+    border-radius: 50%;
+    background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+    position: absolute;
+    top: 50%;
+    left: 0.2rem;
+    left: 0.15rem;
+    transform: translateY(-50%);
+    transition: all 0.5s ease-in;
+}
+
+/* Changing toggle button background when checked */
+#toggle:checked {
+  background: var(--primaryvariant);
+}
+
+/* Changing dot switch color and moving to the right side when checked */
+#toggle:checked::before {
+  background: var(--primaryvariant);
+  box-shadow: inset -0.15rem -0.1rem 0.25rem -0.1rem #8983f7, inset -0.3rem -0.15rem 0 0 #a3dafb;
+  left: 1.75rem;
+}
+
+/* Changing the background & font color when checked */
+#toggle:checked ~ .page-box {
+  background-color: var(--primaryvariant);
+  color: var(--fontcolor1);
+}
+/* ---------------------------------------------------------- */
+
+
+
+/* Media query styles */
+/* ----------------------------------------------------- */
+/* Desktop styles */
+
+/* Header */
+@media only screen and (min-width: 1300px) {
+  .header-leftbar {
+    padding-left: 20vw;
+  }
+  .header-rightbar {
+    padding-right: 20vw;
+  }
+  .trademark {
+    padding: 0 30vw;
+  }
+  .body-description {
+    padding: 0 20vw;
+  }
+}
+
+
+/* ----------------------------------------------------- */
+/* Mobile styles */
+
+/* Header */
+@media only screen and (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+    .header-leftbar {
+      padding: 0 1vw;
+    }
+    .header-rightbar {
+      padding: 0 1vw;
+    }
+}
+
+/* ---------------------------------------------------- */
