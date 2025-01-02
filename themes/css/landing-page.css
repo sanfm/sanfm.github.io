@@ -87,7 +87,7 @@ body {
       /* color: yellow; */
     }
       /* Halo */
-      .halo {
+      .header-halo {
         position: absolute;
         top: 0.825rem; /* Adjust position of the halo */
         left: 50%;
@@ -100,7 +100,7 @@ body {
         box-shadow: 0 0 15px var(--secondary);
       }
       /* Text */
-      .text {
+      .header-text {
         font-family: Arial, sans-serif;
         font-size: 3rem;
         font-weight: bold;
@@ -164,6 +164,7 @@ body {
   align-items: center;
   width: auto;
 }
+  /* Halo */
   .trademark {
     width: 60vw;
   }
@@ -171,6 +172,7 @@ body {
     transform: rotate(-20deg);
     width: fit-content;
     font-size: 5rem;
+    text-shadow: 0 0 10px var(--secondary);
   }
 
 
