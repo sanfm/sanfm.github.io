@@ -95,7 +95,7 @@ body {
         width: 4.125rem; /* Halo width */
         height: 0.6rem; /* Halo height */
         background: none;
-        border: 2px solid var(--secondary);
+        border: 0.5px solid var(--secondary);
         border-radius: 50%;
         box-shadow: 0 0 15px var(--secondary);
       }
@@ -164,7 +164,6 @@ body {
   align-items: center;
   width: auto;
 }
-  /* Halo */
   .trademark {
     width: 60vw;
   }
