@@ -6,6 +6,7 @@
   --primary: #bb86fc;
   --primaryvariant: #3700b3;
   --secondary: #03dac5;
+  --secondary: #ffd700;
   --error: #cf6679;
   --fontcolor1: white;
   --fontcolor2: rgb(80, 80, 80);
@@ -18,6 +19,7 @@
   --primary: #bb86fc;
   --primaryvariant: #3700b3;
   --secondary: #03dac5;
+  --secondary: #ffd700;
   --error: #cf6679;
   --fontcolor1: #FFFFFF;
   --fontcolor2: rgb(80, 80, 80);
@@ -30,6 +32,7 @@
   --primary: #6200EE;
   --primaryvariant: #3700B3;
   --secondary: #03DAC6;
+  --secondary: #ffd700;
   --error: #B00020;
   --fontcolor1: #000000;
   --fontcolor2: rgb(80, 80, 80);
@@ -66,7 +69,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  min-height: 15vh;
+  padding-top: 3rem;
   width: auto;
 }
   .header-leftbar {
@@ -77,6 +80,62 @@ body {
     gap: 1rem;
     padding-left: 10vw;
   }
+  /* Logo Container */
+    .header-logo {
+      position: relative;
+      text-align: center;
+      /* color: yellow; */
+    }
+      /* Halo */
+      .halo {
+        position: absolute;
+        top: 0.825rem; /* Adjust position of the halo */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4.125rem; /* Halo width */
+        height: 0.6rem; /* Halo height */
+        background: none;
+        border: 2px solid var(--secondary);
+        border-radius: 50%;
+        box-shadow: 0 0 15px var(--secondary);
+      }
+      /* Text */
+      .text {
+        font-family: Arial, sans-serif;
+        font-size: 3rem;
+        font-weight: bold;
+        /* color: yellow; */
+        text-shadow: 0 0 10px var(--secondary);
+      }
+    /* .header-searchbar {
+      width: ;
+    } */
+      .search-box {
+        position: relative;
+        width: 100%;
+        background-color: var(--bg2);
+        padding: 2px;
+        border: 3px solid var(--primary);
+        border-radius: 5px;
+      }
+        #site-search {
+          color: var(--fontcolor2);
+          border: 0;
+          outline: none;
+          background-color: var(--bg2);
+        }
+        #site-search:focus {
+          color: var(--fontcolor1);
+        }
+        .search-button {
+          border: 0;
+          background: var(--bg2);
+          text-align: center;
+          color: var(--fontcolor1);
+          border-radius: 0 5px 5px 0;
+          cursor: pointer;
+          font-size: 1.2rem;
+        }
   .header-rightbar {
     display: flex;
     flex-direction: row;

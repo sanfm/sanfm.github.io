@@ -9,6 +9,7 @@
     <script type = "text/javascript" src="/themes/functions/theme-toggle.js"></script>
     <link rel="icon" type="image/x-icon" href="/themes/images/sanfm-logo-black.ico">
     <link href="/themes/css/landing-page.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     
 
 
@@ -28,14 +29,15 @@
       <header class="header-container">
             <div class="header-leftbar">
                 <div class="header-logo">
-                    <p>logo</p>
-                    <!-- <img class="sanfmlogo" src="sanfm-logo-black.png"> -->
+                    <div class="halo"></div>
+                    <div class="text">fm</div>
                 </div>
                 <div class="header-searchbar">
-                    <form action="/action_page.php">
-                        <input type="search" id="site-search" name="q" placeholder="Search the site…"
-                        size="15" />
-                        <button type="submit">🔍</button>
+                    <form action="/action_page.php" class="search-box">
+                        <input type="search" id="site-search" name="q" placeholder="Search..."/>
+                        <button type="submit" class="search-button">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </form>
                 </div>
             </div>
